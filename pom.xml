@@ -429,6 +429,25 @@
             <processors> <processor>org.springframework.data.mongojdbc.repository.support.MongoAnnotationProcessor</processor> 
             <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor> </processors> 
             </configuration> </execution> </executions> </plugin> -->
+    <plugin>
+      <groupId>org.sonatype.plugins</groupId>
+      <artifactId>nexus-staging-maven-plugin</artifactId>
+      <version>1.6.3</version>
+   <executions>
+      <execution>
+         <id>default-deploy</id>
+         <phase>deploy</phase>
+         <goals>
+            <goal>deploy</goal>
+         </goals>
+      </execution>
+   </executions>
+      <extensions>true</extensions>
+      <configuration>
+        <serverId>nexus</serverId>
+        <nexusUrl>http://104.154.53.190:8081/</nexusUrl>
+      </configuration>
+    </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
@@ -721,4 +740,14 @@
             </build>
         </profile>
     </profiles>
+<distributionManagement>
+  <snapshotRepository>
+    <id>snapshots</id>
+    <url>http://104.154.53.190:8081/content/repositories/snapshots</url>
+  </snapshotRepository>
+  <repository>
+    <id>releases</id>
+    <url>http://104.154.53.190:8081/content/repositories/releases</url>
+  </repository>
+</distributionManagement>
 </project>
