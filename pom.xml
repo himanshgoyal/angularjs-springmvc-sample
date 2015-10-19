@@ -430,6 +430,7 @@
             <processors> <processor>org.springframework.data.mongojdbc.repository.support.MongoAnnotationProcessor</processor> 
             <processor>com.mysema.query.apt.jpa.JPAAnnotationProcessor</processor> </processors> 
             </configuration> </execution> </executions> </plugin> -->
+<!--
     <plugin>
       <groupId>org.sonatype.plugins</groupId>
       <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -449,6 +450,7 @@
         <nexusUrl>http://104.154.53.190:8081/</nexusUrl>
       </configuration>
     </plugin>
+-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
