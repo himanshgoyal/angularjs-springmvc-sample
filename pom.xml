@@ -4,8 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.hantsylabs.restexample.springmvc</groupId>
-    <artifactId>angularjs-springmvc-sample</artifactId>
-    <version>1.0-SNAPSHOT</version>
+<!--    <artifactId>angularjs-springmvc-sample</artifactId> -->
+   <artifactId>demoapp</artifactId>
+    <version>${BUILD_NUMBER}</version>
 
     <packaging>war</packaging>
     <name>${project.artifactId}</name>
