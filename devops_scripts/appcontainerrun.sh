@@ -1,16 +1,13 @@
 #!/bin/bash
 
-cp /tmp/Dockerfile Dockerfile
+APP_VERSION="$1"
 sed -i "s/APPVER/$APP_VERSION/g" Dockerfile
-docker build -t jenkins_img:${BUILD_NUMBER} .
-docker tag jenkins_img:${BUILD_NUMBER} localhost:5000/jenkins_img:${BUILD_NUMBER}
-docker push localhost:5000/jenkins_img:${BUILD_NUMBER}
+docker build -t jenkins_img:${APP_VERSION} .
+docker tag jenkins_img:${APP_VERSION} localhost:5000/jenkins_img:${APP_VERSION}
+docker push localhost:5000/jenkins_img:${APP_VERSION}
 docker stop APP1
 docker rm APP1
-docker run -p 8889:8080 -d --name APP1 localhost:5000/jenkins_img:${BUILD_NUMBER}
+docker run -p 8889:8080 -d --name APP1 localhost:5000/jenkins_img:${APP_VERSION}
 docker stop APP2
 docker rm APP2
-docker run -p 8888:8080 -d --name APP2 localhost:5000/jenkins_img:${BUILD_NUMBER}
-## commit new image
-## tag new image
-## push new image
+docker run -p 8888:8080 -d --name APP2 localhost:5000/jenkins_img:${APP_VERSION}
